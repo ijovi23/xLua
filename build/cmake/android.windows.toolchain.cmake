@@ -499,9 +499,9 @@ set(CMAKE_C_FLAGS_DEBUG ""
 	CACHE STRING "Flags used by the compiler during debug builds.")
 set(CMAKE_CXX_FLAGS_DEBUG ""
 	CACHE STRING "Flags used by the compiler during debug builds.")
-set(CMAKE_C_FLAGS_RELEASE ""
+set(CMAKE_C_FLAGS_RELEASE "-s"
 	CACHE STRING "Flags used by the compiler during release builds.")
-set(CMAKE_CXX_FLAGS_RELEASE ""
+set(CMAKE_CXX_FLAGS_RELEASE "-s"
 	CACHE STRING "Flags used by the compiler during release builds.")
 set(CMAKE_MODULE_LINKER_FLAGS ""
 	CACHE STRING "Flags used by the linker during the creation of modules.")
@@ -509,6 +509,16 @@ set(CMAKE_SHARED_LINKER_FLAGS ""
 	CACHE STRING "Flags used by the linker during the creation of dll's.")
 set(CMAKE_EXE_LINKER_FLAGS ""
 	CACHE STRING "Flags used by the linker.")
+# set( CMAKE_CXX_FLAGS           ""                        CACHE STRING "c++ flags" )
+# set( CMAKE_C_FLAGS             ""                        CACHE STRING "c flags" )
+# set( CMAKE_CXX_FLAGS_RELEASE   "-O3 -DNDEBUG"            CACHE STRING "c++ Release flags" )
+# set( CMAKE_C_FLAGS_RELEASE     "-O3 -DNDEBUG"            CACHE STRING "c Release flags" )
+# set( CMAKE_CXX_FLAGS_DEBUG     "-O0 -g -DDEBUG -D_DEBUG" CACHE STRING "c++ Debug flags" )
+# set( CMAKE_C_FLAGS_DEBUG       "-O0 -g -DDEBUG -D_DEBUG" CACHE STRING "c Debug flags" )
+# set( CMAKE_SHARED_LINKER_FLAGS ""                        CACHE STRING "shared linker flags" )
+# set( CMAKE_MODULE_LINKER_FLAGS ""                        CACHE STRING "module linker flags" )
+# set( CMAKE_EXE_LINKER_FLAGS    "-Wl,-z,nocopyreloc"      CACHE STRING "executable linker flags" )
+
 
 set(CMAKE_C_FLAGS             "${ANDROID_COMPILER_FLAGS} ${CMAKE_C_FLAGS}")
 set(CMAKE_CXX_FLAGS           "${ANDROID_COMPILER_FLAGS} ${ANDROID_COMPILER_FLAGS_CXX} ${CMAKE_CXX_FLAGS}")
@@ -531,6 +541,12 @@ if(CMAKE_C_FLAGS_DEBUG)
 endif()
 if(CMAKE_CXX_FLAGS_DEBUG)
 	message("CMAKE_CXX_FLAGS_DEBUG = ${CMAKE_CXX_FLAGS_DEBUG}")
+endif()
+if(CMAKE_C_FLAGS_RELEASE)
+	message("CMAKE_C_FLAGS_RELEASE = ${CMAKE_C_FLAGS_RELEASE}")
+endif()
+if(CMAKE_CXX_FLAGS_RELEASE)
+	message("CMAKE_CXX_FLAGS_RELEASE = ${CMAKE_CXX_FLAGS_RELEASE}")
 endif()
 if(CMAKE_SHARED_LINKER_FLAGS)
 	message("CMAKE_SHARED_LINKDER_FLAGS = ${CMAKE_SHARED_LINKER_FLAGS}")
